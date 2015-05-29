@@ -18,7 +18,28 @@ require COREPATH.'bootstrap.php';
  * Fuel::STAGING
  * Fuel::PRODUCTION
  */
-\Fuel::$env = (isset($_SERVER['FUEL_ENV']) ? $_SERVER['FUEL_ENV'] : \Fuel::DEVELOPMENT);
+
+switch (isset($_SERVER['SERVER_NAME']) ? $_SERVER['SERVER_NAME'] : '') {
+	case 'fuku-job.jp':
+		Fuel::$env = Fuel::PRODUCTION;
+		break;
+
+	case 'stage.fuku-job.jp':
+		Fuel::$env = Fuel::STAGING;
+		break;
+
+	case 'ec2-52-25-218-97.us-west-2.compute.amazonaws.com':
+		Fuel::$env = Fuel::TEST;
+		break;
+
+	case 'mtsr.fuku-job.jp':
+		Fuel::$env = Fuel::TEST;
+		break;
+
+	default:
+		Fuel::$env = Fuel::DEVELOPMENT;
+		break;
+}
 
 // Initialize the framework with the config file.
 \Fuel::init('config.php');

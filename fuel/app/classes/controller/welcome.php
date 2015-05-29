@@ -44,6 +44,20 @@ class Controller_Welcome extends Controller
 		return Response::forge(Presenter::forge('welcome/hello'));
 	}
 
+
+
+	public function action_database()
+ 	{
+ 		var_dump(fuel::$env);
+ 		
+ 		
+		$query = DB::select()->from('test')->execute();
+		var_dump($query);
+		die();
+		
+	}
+
+
 	/**
 	 * The 404 action for the application.
 	 *
