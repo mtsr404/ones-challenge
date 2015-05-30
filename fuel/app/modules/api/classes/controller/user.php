@@ -9,6 +9,12 @@ namespace api;
 
 class Controller_User extends Controller_ApiBase
 {
+
+	public function get_test(){
+		$this->response( \Fuel::$env );
+	}
+
+
 	//======================================================================================================
 	/**
 	 *  API : user/register

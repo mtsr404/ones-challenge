@@ -28,7 +28,7 @@ switch (isset($_SERVER['SERVER_NAME']) ? $_SERVER['SERVER_NAME'] : '') {
 		Fuel::$env = Fuel::STAGING;
 		break;
 
-	case 'ec2-52-25-218-97.us-west-2.compute.amazonaws.com':
+	case '52.25.218.97':
 		Fuel::$env = Fuel::TEST;
 		break;
 
