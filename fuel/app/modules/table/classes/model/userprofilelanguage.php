@@ -9,7 +9,7 @@ namespace table;
 
 class Model_UserProfileLanguage extends Model_TableBase
 {
-	protected static $_table_name = 'user_profile_Language';
+	protected static $_table_name = 'user_profile_language';
 
 	protected static $_rules = array(
 			'id_u'  => 'valid_string[numeric]',
