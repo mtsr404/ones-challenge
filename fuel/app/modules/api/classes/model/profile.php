@@ -8,7 +8,7 @@ namespace api;
 class Model_Profile extends Model_Base{
 
 
-	public static function update($session_id,$year_career,$value_position,$value_money,$skill
+	public static function update($session_id,$year_career,$value_position,$value_money,$skill,
 		array $like_categories , array $use_languages){
 
 		//テーブルモジュールの読み込み
