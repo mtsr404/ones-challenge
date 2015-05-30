@@ -15,7 +15,7 @@ class Model_User extends Model_Base{
 	 * @param
 	 * @return rsp(array)
 	 */
-	public static function register( $pass, $name, $mail, $sex, $birth , $type){
+	public static function register( $name, $type, $mail, $adress, $sex, $birth, $pass ){
 		//テーブルモジュールの読み込み
 		\Module::load('table');
 

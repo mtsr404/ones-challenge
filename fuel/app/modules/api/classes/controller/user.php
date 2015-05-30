@@ -18,13 +18,13 @@ class Controller_User extends Controller_ApiBase
 	public function post_register(){
 
 		$rule_params = array(
-			'pass'   => array('required','pass'),
 			'name'   => 'required',
 			'type'   => array('required', array('enum',array('engineer','designer'))),
 			'mail'   => 'required',
 			'adress' => 'required',
 			'sex'    => array('required', array('enum',array('M','F'))),
-			'birth'  => array('required','natural_number')
+			'birth'  => array('required','natural_number'),
+			'pass'   => array('required','pass'),
 			);
 
 		$result = 

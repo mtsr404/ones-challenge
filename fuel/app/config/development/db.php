@@ -7,8 +7,7 @@ return array(
 	'default' => array(
 		'connection'  => array(
 			'dsn'        => 'mysql:host=localhost;dbname=ones_challenge',
-			'username'   => 'admin_ones',
-			'password'   => 'oneschallengemtsr',
+			'username'   => 'root'
 		),
 	),
 );
