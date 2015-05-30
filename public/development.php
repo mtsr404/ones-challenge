@@ -135,13 +135,13 @@ class Deploy {
 
 	  // Discard any changes to tracked files since our last deploy
 	  exec('git reset --hard HEAD', $output);
-          $this->log('Reseting repository... '.implode(' ', $output));
+          echo('Reseting repository... '.implode(' ', $output));
 
 	  // fetch
 	  exec('git fetch -a', $output);
 
 	  // Update the local repository
-          exec('git reset --hard '.$this->_remote.'/'.$this->_branch, $output);
+          echo('git reset --hard '.$this->_remote.'/'.$this->_branch, $output);
           $this->log('Pulling in changes... '.implode(' ', $output));
 		  // .git は非公開ディレクトリなので必要ない
           // Secure the .git directory
@@ -150,7 +150,7 @@ class Deploy {
 
 		  // ec2-userでもapacheでも修正可能にする
           // Add writable for group
-          exec('chmod -R g+w '. $this->_directory);
+          echo('chmod -R g+w '. $this->_directory);
 
           if (is_callable($this->post_deploy))
           {
