@@ -1,5 +1,5 @@
 {
-  "name": "angular",
+  "name": "oneschallenge",
   "version": "0.0.0",
   "dependencies": {},
   "repository": {},
@@ -8,6 +8,7 @@
     "grunt-autoprefixer": "^2.0.0",
     "grunt-concurrent": "^1.0.0",
     "grunt-contrib-clean": "^0.6.0",
+    "grunt-contrib-coffee": "^0.12.0",
     "grunt-contrib-compass": "^1.0.0",
     "grunt-contrib-concat": "^0.5.0",
     "grunt-contrib-connect": "^0.9.0",
