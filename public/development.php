@@ -116,7 +116,7 @@ class Deploy {
       }
   }
   /**
-  * Executes the necessary commands to deploy the website.
+ o* Executes the necessary commands to deploy the website.
   */
   public function execute()
   {
@@ -124,7 +124,6 @@ class Deploy {
       {
           // Make sure we're in the right directory
           chdir($this->_directory);
-          $this->log('Changing working directory... ');
 
 	  // Composer update
 	  // exec('php composer.phar self-update', $output);
@@ -135,22 +134,16 @@ class Deploy {
 
 	  // Discard any changes to tracked files since our last deploy
 	  exec('git reset --hard HEAD', $output);
-          echo('Reseting repository... '.implode(' ', $output));
 
 	  // fetch
 	  exec('git fetch -a', $output);
 
 	  // Update the local repository
           echo('git reset --hard '.$this->_remote.'/'.$this->_branch, $output);
-          $this->log('Pulling in changes... '.implode(' ', $output));
 		  // .git は非公開ディレクトリなので必要ない
           // Secure the .git directory
           // exec('chmod -R 2775 .git');
           // $this->log('Securing .git directory... ');
-
-		  // ec2-userでもapacheでも修正可能にする
-          // Add writable for group
-          echo('chmod -R g+w '. $this->_directory);
 
           if (is_callable($this->post_deploy))
           {
