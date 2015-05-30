@@ -1,6 +1,6 @@
 <?php
 return array(
-	'_root_'  => 'welcome', // Root (Web Module)
+	 '_root_'  => 'welcome', // Root (Web Module)
 	'_404_'   => '404',    // The main 404 route
 
 	/**
