@@ -6,9 +6,10 @@
  * @version    1.7
  * @author     Fuel Development Team
  * @license    MIT License
- * @copyright  2010 - 2015 Fuel Development Team
+ * @copyright  2010 - 2014 Fuel Development Team
  * @link       http://fuelphp.com
  */
+
 
 return array(
 
@@ -77,14 +78,14 @@ return array(
 	/**
 	 * Localization & internationalization settings
 	 */
-	 'language'           => 'ja', // Default language
-	 'language_fallback'  => 'en', // Fallback language when file isn't available for default language
-	 'locale'             => null, // PHP set_locale() setting, null to not set
+	'language'           => 'ja', // Default language
+	'language_fallback'  => 'en', // Fallback language when file isn't available for default language
+	'locale'             => null, // PHP set_locale() setting, null to not set
 
 	/**
 	 * Internal string encoding charset
 	 */
-	 'encoding'  => 'UTF-8',
+	'encoding'  => 'UTF-8',
 
 	/**
 	 * DateTime settings
@@ -237,9 +238,9 @@ return array(
 	 *
 	 * Paths MUST end with a directory separator (the DS constant)!
 	 */
-	// 'module_paths' => array(
-	// 	//APPPATH.'modules'.DS
-	// ),
+	 'module_paths' => array(
+	 	 APPPATH.'modules'.DS
+	 ),
 
 	/**
 	 * To enable you to split up your additions to the framework, packages are
@@ -250,8 +251,9 @@ return array(
 	 * Paths MUST end with a directory separator (the DS constant)!
 	 */
 	'package_paths' => array(
-		PKGPATH,
+		PKGPATH
 	),
+
 
 	/**************************************************************************/
 	/* Always Load                                                            */
