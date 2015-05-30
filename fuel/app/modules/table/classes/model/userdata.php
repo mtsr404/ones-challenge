@@ -14,6 +14,7 @@ class Model_UserData extends Model_TableBase
 
 	protected static $_rules = array(
 			'id_u'       => 'valid_string[numeric]',
+			'nick_name'  => 'required|max_length[255]',
 			'name'       => 'required|max_length[255]',
 			'type'       => 'required|match_collection[engineer,designer]',
 			'mail'       => 'required|valid_email',
@@ -25,6 +26,7 @@ class Model_UserData extends Model_TableBase
 
 	protected static $_labels = array(
 			'id_u'       => 'ユーザーID',
+			'nick_name'  => 'ニックネーム',
 			'name'       => '名前',
 			'type'       => 'ユーザータイプ',
 			'mail'       => 'メールアドレス',

@@ -15,12 +15,13 @@ class Model_User extends Model_Base{
 	 * @param
 	 * @return rsp(array)
 	 */
-	public static function register( $name, $type, $mail, $adress, $sex, $birth, $pass ){
+	public static function register( $nick_name ,$name, $type, $mail, $adress, $sex, $birth, $pass ){
 		//テーブルモジュールの読み込み
 		\Module::load('table');
 
 		//パスワードをハッシュ化してデータをセット
 		$userData = \table\Model_Userdata::forge(array(
+			'nick_name'  => $nick_name,
 			'name'       => $name,
 			'type'       => $type,
 			'mail'       => $mail,

@@ -24,18 +24,19 @@ class Controller_User extends Controller_ApiBase
 	public function post_register(){
 
 		$rule_params = array(
+			'nick_name' => 'required',
 			'name'   => 'required',
 			'type'   => array('required', array('enum',array('engineer','designer'))),
 			'mail'   => 'required',
 			'adress' => 'required',
 			'sex'    => array('required', array('enum',array('M','F'))),
 			'birth'  => array('required','natural_number'),
-			'pass'   => array('required','pass'),
+			'pass'   => array('required','pass')
 			);
 
 		$result = 
 		self::api_request( \Input::post(),$rule_params, 
-			'Model_User','register','debug_auth_code');
+			'Model_User','register','');
 		$this->response($result);
 	}
 
