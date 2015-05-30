@@ -127,8 +127,8 @@ class Deploy {
           $this->log('Changing working directory... ');
 
 	  // Composer update
-	  exec('php composer.phar self-update', $output);
-	  exec('php composer.phar update', $output);
+	  // exec('php composer.phar self-update', $output);
+	  // exec('php composer.phar update', $output);
 
 	  // checkout
 	  exec('git checkout '.$this->_branch, $output);
