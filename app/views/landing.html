@@ -155,14 +155,14 @@
         <span class="flex flex-xs-auto"></span>
         <div class="column" style="padding-bottom:64px;">
           <span class="flex flex-xs-auto"></span>
-
           <div class="login-wrap">
-            <div class="login-mask">
+            <div class="login-mask z2">
               <div class="frame frame--login z1">
                 <div class="header">
                   <div class="title visibleContent testbox5">
                      会員登録
                   </div>
+                  <div id="login-close" class="close">×</div>
                 </div>
                 <div class="content">
 
@@ -170,6 +170,7 @@
               </div>
             </div>
             <div class="login-button" id="login-button">
+              <ng-md-icon icon="lock_open" class="fill-white"></ng-md-icon>
             </div>
           </div>
           <md-button ng-click="firstCard.showDropCard()" ng-disabled="Pos2 || Pos3" aria-label="register" class="md-fab">
@@ -186,6 +187,9 @@
   $(function(){
     $("#login-button").on("click", function(){
       $(this).parent().addClass("animate");
+    });
+    $("#login-close").on("click", function(){
+      $(".login-wrap").removeClass("animate");
     });
   })
 </script>
