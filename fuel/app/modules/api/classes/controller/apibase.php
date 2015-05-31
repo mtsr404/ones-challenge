@@ -13,6 +13,7 @@ class Controller_ApiBase extends \Controller_Rest
 
 	public static function api_request($input_params, $rule_params , $class_name, $method_name , $result_name){
 		$rsp = array('is_error' => false);
+		header('Access-Control-Allow-Origin: *');
 
 		//コールバックに渡す引数の配列
 		$args = array();
