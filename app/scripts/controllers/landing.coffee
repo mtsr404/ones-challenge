@@ -8,11 +8,6 @@
  # Controller of the onesChallengeApp
 ###
 
-# app.config(($httpProvider)->
-#     $httpProvider.defaults.headers.post['Content-Type'] = 'application/x-www-form-urlencoded;application/json;charset=utf-8'
-# )
-#
-
 angular.module 'onesChallengeApp'
     .controller 'LandingCtrl', ($scope, $http) ->
 
@@ -81,28 +76,38 @@ angular.module 'onesChallengeApp'
         # PARAMETERS
 
         $scope.type = "" # enginner or designer
+        $('#locatedarea').click((e)->
+            areaOffset = $('#locatedarea').offset()
+            offsetTop = ((e.pageY)-(areaOffset.top)-6)
+            offsetLeft = ((e.pageX)-(areaOffset.left)-6)
+
+            $('#locatedpoint').css({top:(offsetTop),left:(offsetLeft),display:'block',opacity:1.0})
+        )
 
         $scope.valuePosition = null
         $scope.valueMoney = null
 
         $scope.skill = ""
+        $scope.languages = []
         $scope.languageList = () ->
             console.log 'start'
             $http({method: 'GET', url: 'http://52.25.218.97/index.php/api/basic/all.json'})
             .success((data, status, headers, config) ->
                 console.log 'success'
+                console.log data.list.languages
+                $scope.languages = data.list.languages
             )
             .error((data, status, headers, config) ->
                 console.log 'error'
             )
 
-        languageId = {
+        $scope.languageId = {
             first: -1
             second: -1
             third: -1
         }
         $scope.languageName = {
-            first: ""
+            first: "html"
             second: ""
             third: ""
         }
