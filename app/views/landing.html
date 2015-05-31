@@ -136,7 +136,7 @@
                     <div class="bar v{{languageLevel.third * 10}}" data-value="{{languageLevel.third * 10}}"></div>
                   </div>
                   <div class="flex flex-xs-auto">
-                    <img src="http://orestrap.azurewebsites.net/img/lang_icon/html5_icon_white.png" class="fav-logo">
+                    <img src="http://orestrap.azurewebsites.net/img/lang_icon/html.png" class="fav-logo">
                   </div>
                 </div>
               </div>
@@ -155,15 +155,37 @@
         <span class="flex flex-xs-auto"></span>
         <div class="column" style="padding-bottom:64px;">
           <span class="flex flex-xs-auto"></span>
+
+          <div class="login-wrap">
+            <div class="login-mask">
+              <div class="frame frame--login z1">
+                <div class="header">
+                  <div class="title visibleContent testbox5">
+                     会員登録
+                  </div>
+                </div>
+                <div class="content">
+
+                </div>
+              </div>
+            </div>
+            <div class="login-button" id="login-button">
+            </div>
+          </div>
           <md-button ng-click="firstCard.showDropCard()" ng-disabled="Pos2 || Pos3" aria-label="register" class="md-fab">
             <ng-md-icon icon="account_box" class="fill-white"></ng-md-icon>
           </md-button>
-          <md-button aria-label="login" class="md-fab">
-            <ng-md-icon icon="lock_open" class="fill-white"></ng-md-icon>
-          </md-button>
+          </div>
         </div>
       </div>
     </div>
   </div>
 
 </div>
+<script>
+  $(function(){
+    $("#login-button").on("click", function(){
+      $(this).parent().addClass("animate");
+    });
+  })
+</script>
