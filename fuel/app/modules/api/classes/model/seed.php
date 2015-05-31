@@ -7,6 +7,30 @@ namespace api;
 
 class Model_Seed extends Model_Base{
 
+	private static $skills = array(
+		'web開発',
+		'CMSツール運用',
+		'Androidアプリ',
+		'SQLインジェクション',
+		'Androidアプリ',
+		'iosアプリ',
+		'CSSアニメーション',
+		'photoshop',
+		'Illustrator',
+		'swift',
+		'REST APIの作成',
+		'セッションハイジャック',
+		'大規模データベース構築',
+		'データベース設計',
+		'かわいいアイコン作り',
+		'クールなアイコン作り',
+		'Angular.js',
+		'node.js',
+		'Polymer 1.0',
+		'knockout.js',
+		'html5 Canvas'
+		);
+
 	public static function make_user( $num , $type , $sex){
 
 		//テーブルモジュールの読み込み
@@ -38,7 +62,7 @@ class Model_Seed extends Model_Base{
 				'year_career'     => rand(1,10),
 				'value_position'  => rand(-1000000,1000000) /1000000,
 				'value_money'     => rand(-1000000,1000000) /1000000,    
-				'skill'           => self::makeRandStr(10)
+				'skill'           => self::$skills[rand(0,count(self::$skills)-1)]
 			));
 
 			$userData->validates_or_exception() ;
