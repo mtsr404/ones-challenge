@@ -17,13 +17,15 @@ angular
     'ngResource',
     'ngRoute',
     'ngSanitize',
-    'ngTouch'
+    'ngTouch',
+    'ngMaterial',
+    'ngMdIcons',
   ]
   .config ($routeProvider) ->
     $routeProvider
       .when '/',
-        templateUrl: 'views/main.html'
-        controller: 'MainCtrl'
+        templateUrl: 'views/landing.html'
+        controller: 'LandingCtrl'
       .when '/about',
         templateUrl: 'views/about.html'
         controller: 'AboutCtrl'

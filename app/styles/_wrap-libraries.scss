@@ -1,0 +1,92 @@
+
+////////////////////////////////////////
+// Override Angular-Material
+////////////////////////////////////////
+
+// whiteframe
+.md-whiteframe-z0 {
+    @include box-shadow(
+        0px 1px 1px -2px rgba(0, 0, 0, 0.2),
+        0px 1px 2px 0px rgba(0, 0, 0, 0.14),
+        0px 0px 3px 0px rgba(0, 0, 0, 0.12)
+    );
+}
+.md-whiteframe-z0,
+.md-whiteframe-z1,
+.md-whiteframe-z2,
+.md-whiteframe-z3,
+.md-whiteframe-z4,
+.md-whiteframe-z5 {
+    @include border-radius(2px);
+}
+
+// toolbar
+.md-toolbar {
+    height:     56px;
+    min-height: 56px;
+    max-height: 56px;
+    @include border-radius(0px);
+}
+
+.md-fixedtoolbar {
+    position: fixed;
+    width: 100%;
+    z-index: 9999;
+}
+.md-fixedtoolbar-margin {
+    margin-top: 56px;
+}
+
+@media (min-width: 600px) {
+    .md-toolbar {
+        height:     64px;
+        min-height: 64px;
+        max-height: 64px;
+    }
+    .md-fixedtoolbar-margin {
+        margin-top: 64px;
+    }
+}
+
+// button
+.md-icon-button {
+    padding-top: 6px;
+}
+.md-fab {
+    padding-top: 7px;
+}
+.md-fab.md-mini{
+    padding-top: 7px;
+}
+
+// palettes
+
+/// inputOnTeal
+md-input-container.md-inputOnTeal-theme {
+
+    .md-input {
+        color: rgba(255, 255, 255, 1.0);
+        border-color: rgba(255, 255, 255, 0.12);
+    }
+
+    label, md-input-container.md-inputOnTeal-theme .md-placeholder {
+        color: rgba(255, 255, 255, 0.3);
+    }
+}
+
+md-input-container.md-inputOnTeal-theme:not(.md-input-invalid).md-input-has-value label {
+    color: rgba(255, 255, 255, 0.3);
+}
+md-input-container.md-inputOnTeal-theme:not(.md-input-invalid).md-input-focused label {
+    color: rgba(255, 255, 255, 0.7);
+}
+md-input-container.md-inputOnTeal-theme:not(.md-input-invalid).md-input-focused .md-input {
+    border-color: rgba(255, 255, 255, 0.7);
+}
+
+/// tabsOnTeal
+md-icon.md-tabsOnTeal-theme {
+    color: #B2DFDB;
+    font-weight: 500;
+}
+

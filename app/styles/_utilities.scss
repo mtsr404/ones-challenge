@@ -1,0 +1,66 @@
+
+@mixin clearfix {
+    @if $support-ie6 or $support-ie7 {
+        *zoom: 1;
+    }
+    &:after {
+        content: "";
+        display: block;
+        clear: both;
+    }
+}
+
+@mixin font-family($type, $important: false) {
+    @if $important == 'important' or $important == true {
+        $important: ' !important';
+    } @else {
+        $important: '';
+    }
+    @if $type == sans-serif {
+        font-family: sans-serif#{$important};
+        @if $support-ie6 {
+            _font-family: 'MS PGothic', sans-serif#{$important};
+        }
+    } @else if $type == serif {
+        font-family: serif#{$important};
+        @if $support-ie6 {
+            _font-family: 'MS Gothic', serif#{$important};
+        }
+    } @else if $type == meiryo {
+        font-family: Meiryo, 'MS PGothic', sans-serif#{$important};
+    } @else if $type == monospace {
+        font-family: monospace#{$important};
+        @if $support-ie6 {
+            _font-family: 'MS Gothic', monospace#{$important};
+        }
+    } @else if $type == hiragino {
+        font-family: 'Hiragino Kaku Gothic Pro', Meiryo, 'MS PGothic', sans-serif#{$important};
+    } @else if $type == verdana {
+        font-family: Verdana, Arial, Helvetica, sans-serif#{$important};
+    } @else if $type == tahoma {
+        f4ont-family: Tahoma, Arial, Helvetica, sans-serif#{$important};
+    }
+}
+
+@mixin border-radius($property-value, $property-type: shorthand) {
+    // [NOTE]
+    // Firefox3.6以下のtopleftやbottomrightなどの
+    // 1コーナーのみを指定する記述には対応していません。
+    //
+    $property: border-radius;
+    @if $property-type != shorthand {
+        $property: border-#{$property-type}-radius;
+        // e.g. 'top-left', 'bottom-right'
+    }
+    // OUTPUT
+    @if $use-prefix-webkit { -webkit-#{$property}: #{$property-value}; }
+    @if $use-prefix-moz { -moz-#{$property}: #{$property-value}; }
+    #{$property}: #{$property-value};
+}
+
+@mixin box-shadow($value...) {
+    -webkit-box-shadow: $value;
+       -moz-box-shadow: $value;
+        -ms-box-shadow: $value;
+            box-shadow: $value;
+}

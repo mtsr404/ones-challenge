@@ -1,0 +1,39 @@
+
+$dropcardWidth: 480px;
+$dropcardHeight: 320px;
+$duration: 800ms;
+
+.dropcard {
+    position:absolute;
+    width: $dropcardWidth;
+    height: $dropcardHeight;
+}
+
+.dropcard-animation {
+    -webkit-transition: $duration cubic-bezier(.32,.9,.45,.96) all;
+    -moz-transition: $duration cubic-bezier(.32,.9,.45,.96) all;
+    -ms-transition: $duration cubic-bezier(.32,.9,.45,.96) all;
+    -o-transition: $duration cubic-bezier(.32,.9,.45,.96) all;
+    transition: $duration cubic-bezier(.32,.9,.45,.96) all;
+}
+
+.pos1 {
+    left: 50%;
+    margin-left: -$dropcardWidth/2;
+    top: 0;
+    margin-top: 0 -  $dropcardHeight - 10px;
+}
+
+.pos2 {
+    left: 50%;
+    margin-left: -$dropcardWidth/2;
+    top: 50%;
+    margin-top: -$dropcardHeight/2;
+}
+
+.pos3{
+    left: 100%;
+    margin-left: 400px;
+    top: 50%;
+    margin-top: -$dropcardHeight/2;
+}
