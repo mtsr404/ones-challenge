@@ -21,7 +21,7 @@ angular
     'ngMaterial',
     'ngMdIcons',
   ]
-  .config ($routeProvider) ->
+  .config ($routeProvider, $httpProvider) ->
     $routeProvider
       .when '/',
         templateUrl: 'views/landing.html'
@@ -32,3 +32,4 @@ angular
       .otherwise
         redirectTo: '/'
 
+    $httpProvider.defaults.headers.post['Content-Type'] = 'application/x-www-form-urlencoded;application/json;charset=utf-8'

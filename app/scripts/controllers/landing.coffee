@@ -12,90 +12,9 @@
 #     $httpProvider.defaults.headers.post['Content-Type'] = 'application/x-www-form-urlencoded;application/json;charset=utf-8'
 # )
 #
-# app.factory('HTTPService', ($http) ->
-#
-#     return {
-#
-#         get : (url, params, success, error) ->
-#
-#             console.log("request url : " + url)
-#
-#             if (params && params !== undefined)
-#                 query = ""
-#                 isFirstLoop = true
-#                 angular.forEach(params, (value, key) ->
-#                     console.log(key + " :  " + value)
-#                     query += isFirstLoop ? '?' : '&'
-#                     query += encodeURIComponent(key) + "=" + encodeURIComponent(value)
-#                     isFirstLoop = false
-#                 )
-#                 url += query
-#             }
-#             $http.get(url).success(success).error(error)
-#         },
-#
-#         post : (url, params, success, error) ->
-#
-#             console.log("request url : " + url)
-#
-#             if (params && params !== undefined) {
-#                 query = ""
-#                 isFirstLoop = true
-#                 angular.forEach(params, (value, key) ->
-#                     console.log(key + " :  " + value)
-#                     query += isFirstLoop ? '' : '&'
-#                     query += encodeURIComponent(key) + "=" + encodeURIComponent(value)
-#                     isFirstLoop = false
-#                 )
-#                 params = query
-#             }
-#
-#             $http.post(url, params).success(success).error(error)
-#         ,
-#
-# )
-#
-# app.factory('BaseModel', (HTTPService) ->
-#
-#     baseURL = 'http:///api/';
-#
-#     // Session ID
-#     sessionID = () ->
-#         return localStorage.getItem('sessionID')
-#     }
-#
-#     return {
-#
-#         send : (options) ->
-#
-#             if (!options.api)
-#                 throw new Error('BaseModel.send must contain "api".')
-#
-#             url = baseURL + options.api + '.json'
-#             success = options.success || ()
-#             error = options.error || ()
-#
-#             defaults = {
-#                 env: env(),
-#                 app_version: appVersion(),
-#                 session_id: sessionID()
-#             }
-#
-#             params = angular.extend({}, defaults, options.params)
-#
-#             if (options.method === 'GET') {
-#                 HTTPService.get(url, params, success, error)
-#             else
-#                 HTTPService.post(url, params, success, error)
-#
-#         ,
-#
-# )
-
-
 
 angular.module 'onesChallengeApp'
-    .controller 'LandingCtrl', ($scope) ->
+    .controller 'LandingCtrl', ($scope, $http) ->
 
         # drop card
         class DropCard
@@ -130,6 +49,11 @@ angular.module 'onesChallengeApp'
                 @isPos1 = false
                 @isPos2 = false
                 @isPos3 = true
+                switch @cardId
+                    when 1
+                        $scope.type = param
+                    when 2
+                        $scope.type = param
                 card = findCardById(@cardId + 1)
                 if card
                     card.showDropCard()
@@ -154,10 +78,35 @@ angular.module 'onesChallengeApp'
         $scope.secondCard = new DropCard(2)
         $scope.thirdCard = new DropCard(3)
 
+        # PARAMETERS
+
+        $scope.type = "" # enginner or designer
+
+        $scope.valuePosition = null
+        $scope.valueMoney = null
+
         $scope.skill = ""
         $scope.languageList = () ->
+            console.log 'start'
+            $http({method: 'GET', url: 'http://52.25.218.97/index.php/api/basic/all.json'})
+            .success((data, status, headers, config) ->
+                console.log 'success'
+            )
+            .error((data, status, headers, config) ->
+                console.log 'error'
+            )
 
-        $scope.language = {
+        languageId = {
+            first: -1
+            second: -1
+            third: -1
+        }
+        $scope.languageName = {
+            first: ""
+            second: ""
+            third: ""
+        }
+        $scope.languageLevel = {
             first: 10
             second: 6
             third: 3

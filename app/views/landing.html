@@ -53,7 +53,7 @@
     </div>
   </div>
 
-  <div class="dropcard md-whiteframe-z2 bg-white" ng-class="{'dropcard-animation': secondCard.animated, 'pos1': secondCard.isPos1, 'pos2': secondCard.isPos2, 'pos3': secondCard.isPos3}">
+  <div class="dropcard-twice frame z1 bg-white" ng-class="{'dropcard-animation': secondCard.animated, 'pos1': secondCard.isPos1, 'pos2': secondCard.isPos2, 'pos3': secondCard.isPos3}">
     <div class="" style="padding:8px;">
       <div class="row">
         <span class="flex flex-xs-auto"></span>
@@ -61,46 +61,16 @@
         <ng-md-icon icon="close" class="fill-grey-500"></ng-md-icon>
         </md-button>
       </div>
-      <div class="row">
+      <div class="row" style="padding-bottom:16px;">
         <span class="flex flex-xs-auto"></span>
-        <span style="font-size:22px; font-weight:700; opacity: 0.86;">あなたはどっち？</span>
+        <span style="font-size:16px; font-weight:700;">あなたの傾向を選んで</span>
         <span class="flex flex-xs-auto"></span>
+        <md-button ng-click="secondCard.nextDropCard()">次</md-button>
       </div>
-      <div class="row">
-        <span class="flex flex-xs-auto"></span>
-        <span style="font-size:18px; font-weight:100; opacity: 0.52;">Which are you?</span>
-        <span class="flex flex-xs-auto"></span>
-      </div>
-    </div>
-    <div class="" style="padding: 32px;">
-      <div class="row">
-        <span class="flex flex-xs-auto"></span>
-        <div ng-click="secondCard.nextDropCard(0)" class="flex flex-xs-6 bg-grey-200 frame z1" style="cursor:pointer;width:120px; height:120px; border-radius: 60px; background-color: #ffc400; padding-top:22px;">
-          <div class="row">
-            <span class="flex flex-xs-auto"></span>
-            <img src="images/designer_icon.png" width="54" height="54">
-            <span class="flex flex-xs-auto"></span>
-          </div>
-          <div class="row" style="padding-top:8px">
-            <span class="flex flex-xs-auto"></span>
-            <span style="color:white;font-size:14px;font-weight:700;">デザイナー</span>
-            <span class="flex flex-xs-auto"></span>
-          </div>
+      <div style="text-align:center;">
+        <div style="margin: 0 auto;background:url('images/enginner_fig_bg.png');background-size:cover;width:400px; height:400px;">
+
         </div>
-        <span class="flex flex-xs-auto"></span>
-        <div ng-click="secondCard.nextDropCard(1)" class="flex flex-xs-6 bg-grey-200 frame z1" style="cursor:pointer;width:120px; height:120px; border-radius: 60px; background-color: #448aff; padding-top:22px;">
-          <div class="row">
-            <span class="flex flex-xs-auto"></span>
-            <img src="images/pc.png" width="54" height="54">
-            <span class="flex flex-xs-auto"></span>
-          </div>
-          <div class="row" style="padding-top:8px">
-            <span class="flex flex-xs-auto"></span>
-            <span style="color:white;font-size:14px;font-weight:700;">エンジニア</span>
-            <span class="flex flex-xs-auto"></span>
-          </div>
-        </div>
-        <span class="flex flex-xs-auto"></span>
       </div>
     </div>
   </div>
@@ -115,26 +85,32 @@
       </div>
       <div class="row">
 
-        <div class="flex flex-xs-auto" style="padding: 24px;">
+        <div class="flex flex-xs-auto" style="padding: 24px; padding-top:0px">
           <md-input-container>
           <label>特技</label>
           <input ng-model="skill">
           </md-input-container>
-          <div class="row">
-            <span class="flex flex-xs-auto"></span>
-            <md-slider min="0" max="10" ng-model="language.first" aria-label="first" class="flex flex-xs-13"></md-slider>
-          </div>
-          <div class="row">
-            <span class="flex flex-xs-auto"></span>
-            <md-slider min="0" max="10" ng-model="language.second" aria-label="second"  class="flex flex-xs-13"></md-slider>
-          </div>
-          <div class="row">
-            <span class="flex flex-xs-auto"></span>
-            <md-slider min="0" max="10" ng-model="language.third" aria-label="third"  class="flex flex-xs-13"></md-slider>
-          </div>
+
+          <md-select ng-model="user" md-on-open="languageList()" style="min-width: 40px;">
+          <md-select-label>{{ languageName.first ? languageName.first : '使用言語を選択' }}</md-select-label>
+          <md-option ng-value="user" ng-repeat="user in users">{{language.name}}</md-option>
+          </md-select>
+          <md-slider min="0" max="10" ng-model="languageLevel.first" aria-label="first" class="flex flex-xs-auto"></md-slider>
+
+          <md-select ng-model="user" md-on-open="languageList()" style="min-width: 40px;">
+          <md-select-label>{{ languageName.first ? languageName.first : '使用言語を選択' }}</md-select-label>
+          <md-option ng-value="user" ng-repeat="user in users">{{language.name}}</md-option>
+          </md-select>
+          <md-slider min="0" max="10" ng-model="languageLevel.second" aria-label="second"  class="flex flex-xs-auto"></md-slider>
+
+          <md-select ng-model="user" md-on-open="languageList()" style="min-width: 40px;">
+          <md-select-label>{{ languageName.first ? languageName.first : '使用言語を選択' }}</md-select-label>
+          <md-option ng-value="user" ng-repeat="user in users">{{language.name}}</md-option>
+          </md-select>
+          <md-slider min="0" max="10" ng-model="languageLevel.third" aria-label="third"  class="flex flex-xs-auto"></md-slider>
         </div>
 
-        <div class="flex flex-xs-auto" style="padding: 8px;">
+        <div class="flex flex-xs-auto" style="padding: 8px; padding-top:48px">
           <div class="frame z1 card aspectwrapper-2by3 javascript">
             <div class="content">
               <div class="top z2 aspectwrapper-3by2">
@@ -153,11 +129,11 @@
                   <div class="flex flex-xs-auto">
                     <div class="bars-title">使用言語:</div>
                     <div class="bar-name">Ruby</div>
-                    <div class="bar v{{language.first * 10}}" data-value="{{language.first * 10}}"></div>
+                    <div class="bar v{{languageLevel.first * 10}}" data-value="{{languageLevel.first * 10}}"></div>
                     <div class="bar-name">Php</div>
-                    <div class="bar v{{language.second * 10}}" data-value="{{language.second * 10}}"></div>
+                    <div class="bar v{{languageLevel.second * 10}}" data-value="{{languageLevel.second * 10}}"></div>
                     <div class="bar-name">C++</div>
-                    <div class="bar v{{language.third * 10}}" data-value="{{language.third * 10}}"></div>
+                    <div class="bar v{{languageLevel.third * 10}}" data-value="{{languageLevel.third * 10}}"></div>
                   </div>
                   <div class="flex flex-xs-auto">
                     <img src="http://orestrap.azurewebsites.net/img/lang_icon/html5_icon_white.png" class="fav-logo">
