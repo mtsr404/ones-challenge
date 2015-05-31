@@ -24,7 +24,8 @@ class Controller_Profile extends Controller_ApiBase
 			'value_money'     => 'required',
 			'skill'           => 'required',
 			'like_categories' => 'json',
-			'use_languages'   => 'json'
+			'use_languages'   => 'json',
+			'use_design'      => 'json'
 			);
 
 		$result = 

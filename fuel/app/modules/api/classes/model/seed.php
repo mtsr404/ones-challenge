@@ -60,18 +60,35 @@ class Model_Seed extends Model_Base{
 			}
 
 		
-			//言語の保存
-			$l_num = rand(1,4);
-			for($i=0 ; $i< $l_num ; $i++ ){
-				$htp = \table\Model_UserProfileLanguage::forge(array(
-					'id_u'   => $id_u, 
-					'id_tl'  => rand(1,6),
-					'rate'   => rand(0,100) / 100
-				));
-				$htp->validates_or_exception();
-				$htp->is_new(true);
-				$htp->save(false);
-				unset($htp);
+			if($type == 'engineer'){
+				//言語の保存
+				$l_num = rand(1,4);
+				for($i=0 ; $i< $l_num ; $i++ ){
+					$htp = \table\Model_UserProfileLanguage::forge(array(
+						'id_u'   => $id_u, 
+						'id_tl'  => rand(1,6),
+						'rate'   => rand(0,100) / 100
+					));
+					$htp->validates_or_exception();
+					$htp->is_new(true);
+					$htp->save(false);
+					unset($htp);
+				}
+			}
+			else if($type == 'designer'){
+				//言語の保存
+				$l_num = rand(1,4);
+				for($i=0 ; $i< $l_num ; $i++ ){
+					$htp = \table\Model_UserProfileDesign::forge(array(
+						'id_u'   => $id_u, 
+						'id_td'  => rand(1,4),
+						'rate'   => rand(0,100) / 100
+					));
+					$htp->validates_or_exception();
+					$htp->is_new(true);
+					$htp->save(false);
+					unset($htp);
+				}
 			}
 			unset($userData);
 			unset($userProfile);

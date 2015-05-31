@@ -9,7 +9,7 @@ class Model_Profile extends Model_Base{
 
 
 	public static function update($session_id,$year_career,$value_position,$value_money,$skill,
-		array $like_categories , array $use_languages){
+		array $like_categories , array $use_languages , array $use_design){
 
 		//テーブルモジュールの読み込み
 		\Module::load('table');
@@ -23,8 +23,6 @@ class Model_Profile extends Model_Base{
 			'value_position'  => $value_position,
 			'value_money'     => $value_money,
 			'skill' => $skill
-			//'like_categories' => $like_categories,
-			//'use_languages'   => $use_languages
 			));
 
 		//データベースへの書き込み開始
@@ -62,7 +60,7 @@ class Model_Profile extends Model_Base{
 		\DB::delete('user_profile_language')->where('id_u' , '=' , $session->id_u)->execute();
 		
 
-		//カテゴリの保存
+		//言語の保存
 		foreach( $use_languages as $value ){
 			$htp = \table\Model_UserProfileLanguage::forge(array(
 				'id_u'   => $session->id_u, 
@@ -74,6 +72,24 @@ class Model_Profile extends Model_Base{
 			$htp->save(false);
 			
 		}
+
+		//-----------------------------------------------------------------------------
+		\DB::delete('user_profile_design')->where('id_u' , '=' , $session->id_u)->execute();
+		
+
+		//デザインジャンルの保存
+		foreach( $use_languages as $value ){
+			$htp = \table\Model_UserProfileDesign::forge(array(
+				'id_u'   => $session->id_u, 
+				'id_td'  => $value[0],
+				'rate'   => $value[1]
+			));
+			$htp->validates_or_exception();
+			$htp->is_new(true);
+			$htp->save(false);
+			
+		}
+
 
 	}
 
