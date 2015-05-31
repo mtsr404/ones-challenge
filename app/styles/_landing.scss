@@ -37,3 +37,43 @@ $duration: 800ms;
     top: 50%;
     margin-top: -$dropcardHeight/2;
 }
+
+
+$dropcardTwiceWidth: 580px;
+$dropcardTwiceHeight:470px;
+$duration: 800ms;
+
+.dropcard-twice {
+    position:absolute;
+    width: $dropcardTwiceWidth;
+    height: $dropcardTwiceHeight;
+}
+
+.dropcard-animation {
+    -webkit-transition: $duration cubic-bezier(.32,.9,.45,.96) all;
+    -moz-transition: $duration cubic-bezier(.32,.9,.45,.96) all;
+    -ms-transition: $duration cubic-bezier(.32,.9,.45,.96) all;
+    -o-transition: $duration cubic-bezier(.32,.9,.45,.96) all;
+    transition: $duration cubic-bezier(.32,.9,.45,.96) all;
+}
+
+.dropcard-twice.pos1 {
+    left: 50%;
+    margin-left: -$dropcardTwiceWidth/2;
+    top: 0;
+    margin-top: 0 - $dropcardTwiceHeight - 10px;
+}
+
+.dropcard-twice.pos2 {
+    left: 50%;
+    margin-left: -$dropcardTwiceWidth/2;
+    top: 50%;
+    margin-top: -$dropcardTwiceHeight/2;
+}
+
+.dropcard-twice.pos3{
+    left: 100%;
+    margin-left: 400px;
+    top: 50%;
+    margin-top: -$dropcardTwiceHeight/2;
+}

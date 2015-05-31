@@ -1,0 +1,52 @@
+  <div class="dropcard md-whiteframe-z2 bg-white" ng-class="{'dropcard-animation': animated, 'pos1': isPos1, 'pos2': isPos2, 'pos3': isPos3}">
+    <div class="" style="padding:8px;">
+      <div class="row">
+        <span class="flex flex-xs-auto"></span>
+        <md-button class="md-icon-button" aria-label="close" ng-click="hideDropCard()">
+        <ng-md-icon icon="close" class="fill-grey-500"></ng-md-icon>
+        </md-button>
+      </div>
+      <div class="row">
+        <span class="flex flex-xs-auto"></span>
+        <span style="font-size:22px; font-weight:700; opacity: 0.86;">あなたはどっち？</span>
+        <span class="flex flex-xs-auto"></span>
+      </div>
+      <div class="row">
+        <span class="flex flex-xs-auto"></span>
+        <span style="font-size:18px; font-weight:100; opacity: 0.52;">Which are you?</span>
+        <span class="flex flex-xs-auto"></span>
+      </div>
+    </div>
+    <div class="" style="padding: 32px;">
+      <div class="row">
+        <span class="flex flex-xs-auto"></span>
+        <div ng-click="nextDropCard(0,0)" class="flex flex-xs-6 bg-grey-200 frame z1" style="cursor:pointer;width:120px; height:120px; border-radius: 60px; background-color: #ffc400; padding-top:22px;">
+          <div class="row">
+            <span class="flex flex-xs-auto"></span>
+            <img src="images/designer_icon.png" width="54" height="54">
+            <span class="flex flex-xs-auto"></span>
+          </div>
+          <div class="row" style="padding-top:8px">
+            <span class="flex flex-xs-auto"></span>
+            <span style="color:white;font-size:14px;font-weight:700;">デザイナー</span>
+            <span class="flex flex-xs-auto"></span>
+          </div>
+        </div>
+        <span class="flex flex-xs-auto"></span>
+        <div ng-click="nextDropCard(0,1)" class="flex flex-xs-6 bg-grey-200 frame z1" style="cursor:pointer;width:120px; height:120px; border-radius: 60px; background-color: #448aff; padding-top:22px;">
+          <div class="row">
+            <span class="flex flex-xs-auto"></span>
+            <img src="images/pc.png" width="54" height="54">
+            <span class="flex flex-xs-auto"></span>
+          </div>
+          <div class="row" style="padding-top:8px">
+            <span class="flex flex-xs-auto"></span>
+            <span style="color:white;font-size:14px;font-weight:700;">エンジニア</span>
+            <span class="flex flex-xs-auto"></span>
+          </div>
+        </div>
+        <span class="flex flex-xs-auto"></span>
+      </div>
+    </div>
+  </div>
+
